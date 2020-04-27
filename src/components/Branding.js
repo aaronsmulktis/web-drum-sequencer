@@ -18,7 +18,7 @@ export const Branding = () => (
   <Box mb={4} display="flex" alignItems="center">
     <Logo color="white" width="200px" />
     <HeaderText color="white">
-      Web Drum Sequencer
+      Drum Sequencer
     </HeaderText>
   </Box>
 );

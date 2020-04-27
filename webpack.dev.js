@@ -10,7 +10,23 @@ module.exports = merge(common, {
     contentBase: path.join(__dirname, './dist'),
     hotOnly: true,
   },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ['babel-loader'],
+      }
+    ],
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
   plugins: [
+    new webpack.IgnorePlugin(/vertx/),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
