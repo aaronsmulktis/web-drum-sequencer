@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { fetchFile, decodeFile, decodeAudio } from './fileUtils';
 import { saveToDB, getFromDB } from './database';
 
@@ -21,7 +22,9 @@ export const loadSample = (url) => {
         sampleStore[url] = drumBuffer;
         return true;
       })
-      .catch(() => false));
+      .catch(() => () => {
+        console.log('tell them error');
+      }));
 };
 
 export const saveToSampleStore = (file) => {
